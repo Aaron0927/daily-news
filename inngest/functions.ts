@@ -13,7 +13,7 @@ export const helloWorld = inngest.createFunction(
 
 export const sendDailyNews = inngest.createFunction(
     {id: "send-daily-news"},
-    {event: "test/send.daily.news"},
+    { cron: "TZ=Asia/Shanghai 50 22 * * *" },
     async ({event, step}) => {
         // 1.从多个RSS源获取新闻
         const newsItems = await step.run("fetch-news", async () => {
